@@ -1,0 +1,7 @@
+// Bu dosya kullanılmıyor
+{
+  "MONGO_URI": "mongodb+srv://test123:test123@backenddatabase.wgh2ete.mongodb.net/?retryWrites=true&w=majority",
+  "MONGO_URI2": "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0",
+  "API_PORT": "3500",
+  "JWT_SECRET": "jwt-secret"
+}

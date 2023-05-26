@@ -1,0 +1,13 @@
+.leaflet-container {
+    width: 40vm;
+    height: 40vh;
+}
+
+.img {
+    width: 70%;
+    height: 70%;
+}
+
+.img-opacity {
+    opacity: 0.5;
+}
