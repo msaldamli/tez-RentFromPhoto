@@ -4,6 +4,12 @@ import { toast } from 'react-toastify';
 import Webcam from 'react-webcam';
 
 const WebCam = () => {
+  const isMobileDevice = () => {
+    return (
+      typeof window.orientation !== 'undefined' ||
+      navigator.userAgent.indexOf('IEMobile') !== -1
+    );
+  };
   const videoConstraints = {
     width: 1280,
     height: 720,
@@ -12,12 +18,6 @@ const WebCam = () => {
 
   const [oversizedPicture, setOversizedPicture] = useState(false);
   const [picture, setPicture] = useState([]);
-  const isMobileDevice = () => {
-    return (
-      typeof window.orientation !== 'undefined' ||
-      navigator.userAgent.indexOf('IEMobile') !== -1
-    );
-  };
 
   const overSizeNotify = () => toast('Maksimum 2 adet fotoğraf çekebilirsiniz');
 
