@@ -20,16 +20,18 @@ import { ToastContainer } from 'react-toastify';
 import Profile from './pages/Profile';
 import LeaderPage from './pages/LeaderPage';
 import LeaderUser from './pages/LeaderUser';
-import Navbar from './components/Navbar';
 import User from './pages/User';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className='App'>
       <ToastContainer />
-      <Header />
+
       {/* <Navbar /> */}
       <BrowserRouter>
+        {/* <Header /> */}
+        <Navbar />
         <Routes>
           <Route path='/' element={<Outlet />}>
             <Route path='/home' element={<Home />}></Route>

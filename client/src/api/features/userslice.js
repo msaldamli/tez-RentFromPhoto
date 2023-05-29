@@ -49,7 +49,7 @@ const userSlice = createSlice({
       reducer(state, action) {
         console.log('logout');
         localStorage.removeItem('user');
-        state.user = initialState;
+        state.user = null;
       },
     },
   },

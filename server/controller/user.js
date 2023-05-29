@@ -90,7 +90,6 @@ const getOneUser = async (req, res) => {
     const user = await User.findOne({ _id: userId });
 
     console.log(userId);
-    console.log('111111111111');
     console.log(user);
     user.password = '';
     return res.status(200).json(user);

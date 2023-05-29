@@ -37,6 +37,7 @@ const Home = () => {
     localStorage.removeItem('adres');
     localStorage.removeItem('phone');
     localStorage.removeItem('likeLocation');
+    localStorage.removeItem('postRating');
   }, []);
 
   useEffect(() => {

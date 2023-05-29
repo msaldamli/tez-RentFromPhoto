@@ -9,6 +9,7 @@ import baseURL from '../axios';
 import { useNavigate } from 'react-router-dom';
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem('user'));
+  console.log(user);
   const [userPost, setUserpost] = useState();
 
   useEffect(() => {

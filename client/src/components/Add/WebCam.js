@@ -29,7 +29,7 @@ const WebCam = () => {
     // console.log(pictureSrc);
     localStorage.setItem('pic', JSON.stringify(pictureSrc));
 
-    if (picture.length == 1) {
+    if (picture.length === 1) {
       // 2 yi 1 olarak değiştirdim
       setOversizedPicture(true);
       overSizeNotify();
@@ -49,7 +49,7 @@ const WebCam = () => {
       // console.log(picture.length);
       setOversizedPicture(false);
     }
-    if (picture.length == 1) {
+    if (picture.length === 1) {
       // 2 yi 1 olarak değiştirdim
       setOversizedPicture(true);
     }

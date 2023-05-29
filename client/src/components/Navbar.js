@@ -1,43 +1,80 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navber.css'; // Stil dosyası için import edildi
+import './Navbar.css';
+import { Container } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { logout } from '../api/features/userslice';
 
 const Navbar = () => {
+  const user = localStorage.getItem('user');
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    toast.error('Çıkış yaptınız !!   Sayfayı yenileyiniz', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+
+    localStorage.removeItem('user');
+    dispatch(logout());
+  };
   return (
-    <nav className='navbar'>
-      <ul className='navbar-nav'>
-        <li className='nav-item'>
-          <Link to='/' className='nav-link'>
+    <Container className='navbar'>
+      <ul className='navbar__list'>
+        <li className='navbar__item'>
+          <Link to='/home' className='navbar__link'>
+            RENT FROM PHOTO
+          </Link>
+        </li>
+        <li className='navbar__item'>
+          <Link to='/' className='navbar__link'>
             Ana Sayfa
           </Link>
         </li>
-        <li className='nav-item'>
-          <Link to='/ilanlar' className='nav-link'>
-            Yeni İlan
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/profil' className='nav-link'>
-            Profil
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/liderlik-tablosu' className='nav-link'>
+        {user && (
+          <li className='navbar__item'>
+            <Link to='/Add' className='navbar__link'>
+              Yeni İlan
+            </Link>
+          </li>
+        )}
+        {user && (
+          <li className='navbar__item'>
+            <Link to='/Profile' className='navbar__link'>
+              Profil
+            </Link>
+          </li>
+        )}
+        <li className='navbar__item'>
+          <Link to='/Leader' className='navbar__link'>
             Liderlik Tablosu
           </Link>
         </li>
-        <li className='nav-item'>
-          <Link to='/giris-yap' className='nav-link'>
-            GİRİŞ YAP
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/about' className='nav-link'>
-            About
-          </Link>
-        </li>
+
+        {!user ? (
+          <li className='navbar__item '>
+            <Link to='login' className='navbar__link '>
+              Giriş Yap
+            </Link>
+          </li>
+        ) : (
+          <li className='navbar__item'>
+            <Link to='/' className='navbar__link ' onClick={handleClick}>
+              Çıkış Yap
+            </Link>
+          </li>
+        )}
       </ul>
-    </nav>
+    </Container>
   );
 };
 

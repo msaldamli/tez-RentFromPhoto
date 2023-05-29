@@ -80,7 +80,6 @@ const LeaderPage = () => {
                   >
                     kullanıcıya git
                   </td>
-                  <td>{user._id}</td>
                 </tr>
               ))}
             </tbody>
