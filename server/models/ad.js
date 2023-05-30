@@ -15,6 +15,7 @@ const ad = new mongoose.Schema(
     likeLocation: { type: String, required: false },
     postType: { type: String, required: false },
     postRating: { type: Number, required: false },
+    ratingCount: { type: Number, required: false },
   },
   { timestamps: true }
 );

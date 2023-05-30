@@ -23,6 +23,7 @@ const createLocation = async (req, res) => {
       postType,
     } = reqAd;
     const postRating = apartmentRating;
+    const ratingCount = 1;
     if (!(userId && image && lat && lng)) {
       return res.status(400).send('All inputs are required');
     }
@@ -47,6 +48,7 @@ const createLocation = async (req, res) => {
       ownerRating,
       postType,
       postRating,
+      ratingCount,
     });
     res.status(201).json({ ad, message: 'success' });
   } catch (error) {
@@ -109,13 +111,16 @@ const setLocationById = async (req, res) => {
     const getRating = await Ad.findOne({ _id: locationId });
     // console.log(getRating + '1000000000');
     const getRating2 = getRating.postRating;
+    const count = getRating.ratingCount;
+    console.log(count);
+    count = count + 1;
 
     const rating = (Number(getRating2) * 5 + Number(postRating)) / 6;
     const ratingtoFixed = rating.toFixed(2);
     console.log(rating);
     const location = await Ad.updateOne(
       { _id: locationId },
-      { postRating: ratingtoFixed },
+      { postRating: ratingtoFixed, ratingCount: count },
       { new: true }
     );
 
