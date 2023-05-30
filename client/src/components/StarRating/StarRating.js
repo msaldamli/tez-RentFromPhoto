@@ -24,12 +24,6 @@ export default function StarRating(props) {
     }
   };
 
-  // const handleReset = () => {
-  //   // Set the initial value
-  //   setRating(0);
-  //   console.log(rating);
-  // };
-
   return (
     <div>
       <Rating onClick={handleRating} initialValue={rating} />

@@ -35,7 +35,7 @@ const Login = () => {
         progress: undefined,
         theme: 'colored',
       });
-      navigate('/Home');
+      navigate('/');
     }
 
     // localStorage.setItem('user', JSON.stringify(user));

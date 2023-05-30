@@ -90,7 +90,8 @@ const Location = () => {
           <Col>
             <label>Adres : {location.adres}</label>
             <h2 style={{ textAlign: 'center', marginTop: 20 }}>
-              İLAN PUANI :{location?.postRating}
+              İLAN PUANI :{location?.postRating} değerlendirme sayısı :(
+              {location.ratingCount})
             </h2>
           </Col>
         </Row>
@@ -98,7 +99,7 @@ const Location = () => {
           <label>Vermiş olduğunuz telefon numarası :{location.phone} </label>
         </Row>
         <Row style={{ marginTop: 10 }}>
-          <label>Adres tarifi :{location.likelocation} </label>
+          <label>Adres tarifi :{location.likeLocation} </label>
         </Row>
         <Row style={{ marginTop: 10 }}>
           <label>Yorumlarınız ve Bilgilendirme :{location.apartment} </label>

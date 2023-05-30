@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -9,6 +9,7 @@ import { logout } from '../api/features/userslice';
 const Navbar = () => {
   const user = localStorage.getItem('user');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -25,13 +26,14 @@ const Navbar = () => {
     });
 
     localStorage.removeItem('user');
+    navigate('/Home');
     dispatch(logout());
   };
   return (
     <Container className='navbar'>
       <ul className='navbar__list'>
         <li className='navbar__item'>
-          <Link to='/home' className='navbar__link'>
+          <Link to='/Home' className='navbar__link'>
             RENT FROM PHOTO
           </Link>
         </li>

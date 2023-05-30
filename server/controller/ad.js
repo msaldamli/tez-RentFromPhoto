@@ -105,22 +105,19 @@ const setLocationById = async (req, res) => {
     const { locationId } = req.params;
     const { postRating } = req.body;
     const numberRating = Number(postRating);
-    // console.log(locationId);
-    // console.log(req.body);
-    // console.log(postRating);
-    const getRating = await Ad.findOne({ _id: locationId });
-    // console.log(getRating + '1000000000');
-    const getRating2 = getRating.postRating;
-    const count = getRating.ratingCount;
-    console.log(count);
-    count = count + 1;
 
-    const rating = (Number(getRating2) * 5 + Number(postRating)) / 6;
+    const getRating = await Ad.findOne({ _id: locationId });
+    const ratingCount = getRating.ratingCount;
+    console.log(ratingCount);
+    const getRating2 = getRating.postRating;
+    const rating =
+      (Number(getRating2) * ratingCount + Number(postRating)) /
+      (ratingCount + 1);
     const ratingtoFixed = rating.toFixed(2);
     console.log(rating);
     const location = await Ad.updateOne(
       { _id: locationId },
-      { postRating: ratingtoFixed, ratingCount: count },
+      { postRating: ratingtoFixed, ratingCount: ratingCount + 1 },
       { new: true }
     );
 

@@ -53,10 +53,10 @@ const AddNext = () => {
       });
   }, []);
 
-  const [phone, setPhone] = useState();
-  const [likeLocation, setLikeLocation] = useState();
-  const [apartment, setApartment] = useState();
-  const [owner, setOwner] = useState();
+  const [phone, setPhone] = useState('bilgi verilmedi');
+  const [likeLocation, setLikeLocation] = useState('bilgi verilmedi');
+  const [apartment, setApartment] = useState('bilgi verilmedi');
+  const [owner, setOwner] = useState('bilgi verilmedi');
 
   const phoneAdd = (e) => {
     setPhone({ ...phone, [e.target.name]: e.target.value });
