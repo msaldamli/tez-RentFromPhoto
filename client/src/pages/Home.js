@@ -166,6 +166,7 @@ const Home = () => {
                 {/* {console.log(i)} */}
                 <div className='card p-2' style={{ width: '20rem' }}>
                   <img
+                    style={{ height: 120, width: 300 }}
                     className='card-img-top'
                     src={ilan.image}
                     alt='Card image cap'
