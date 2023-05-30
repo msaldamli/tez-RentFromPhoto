@@ -24,7 +24,11 @@ const WebCam = () => {
   const webcamRef = useRef(null);
 
   const capture = useCallback(() => {
-    const pictureSrc = webcamRef.current.getScreenshot();
+    const pictureSrc = webcamRef.current.getScreenshot({
+      width: 1280,
+      height: 720,
+      quality: 1,
+    });
     // let obj = { label: `${pictureSrc}` };
     // console.log(pictureSrc);
     localStorage.setItem('pic', JSON.stringify(pictureSrc));
