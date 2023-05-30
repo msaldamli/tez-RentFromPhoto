@@ -90,6 +90,7 @@ const LeaderUser = () => {
                   <div className='card p-2' style={{ width: '20rem' }}>
                     <img
                       className='card-img-top'
+                      style={{ height: 150, width: 300 }}
                       src={ilan.image}
                       alt='Card image cap'
                     />

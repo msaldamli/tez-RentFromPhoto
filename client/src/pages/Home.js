@@ -11,7 +11,6 @@ import { getUsers } from '../api/api';
 import profile from '../foto/profil.png';
 
 const Home = () => {
-  // const [a, setA] = useState(0);
   const [ilanlar, setilanlar] = useState();
   const navigate = useNavigate();
   useEffect(() => {
@@ -62,14 +61,11 @@ const Home = () => {
   useEffect(() => {
     const userFind = async () => {
       const result = await getUsers();
-      // console.log(result);
       setUsers(result);
     };
     userFind();
   }, []);
   const user = users;
-  // console.log(user);
-  // console.log(user.name);
 
   const title = (rating) => {
     if (rating === 0) {
@@ -159,14 +155,12 @@ const Home = () => {
       </Row>
       <Row>
         {ilanlar?.map((ilan, i) => {
-          //getAddress(ilan.lat, ilan.lng);
           return (
             <Col key={i}>
               <Row className='mt-4 p-4'>
-                {/* {console.log(i)} */}
                 <div className='card p-2' style={{ width: '20rem' }}>
                   <img
-                    style={{ height: 120, width: 300 }}
+                    style={{ height: 150, width: 300 }}
                     className='card-img-top'
                     src={ilan.image}
                     alt='Card image cap'

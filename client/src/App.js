@@ -4,7 +4,6 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Comment from './pages/Comment';
-import Header from './components/Header';
 import Login from './pages/login';
 import Register from './pages/register';
 import RequireAuth from './components/requireauth';
