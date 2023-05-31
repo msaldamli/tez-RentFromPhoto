@@ -28,9 +28,9 @@ const corsOpts = {
 };
 
 // response ve req içerisinden döndürülen json formatlarını algılar ve çözümler
+app.use(express.json({ limit: '10mb' }));
 app.use(express.json());
 app.use(cors(corsOpts));
-
 // routes/users dosyasındaki rotaları kullanır.
 app.use('/api/users/', require('./routes/users'));
 app.use('/api/ads/', require('./routes/ads'));

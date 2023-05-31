@@ -4,7 +4,7 @@ const Ad = require('../models/ad');
 
 const createLocation = async (req, res) => {
   try {
-    // console.log(req.body);
+    console.log(req.body);
 
     const reqAd = req.body;
 
