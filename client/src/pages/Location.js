@@ -123,7 +123,7 @@ const Location = () => {
           </h5>
         </Row>
         <Row style={{ marginTop: 10 }}>
-          <label>Vermiş olduğunuz telefon numarası :{location.phone} </label>
+          <label>Verilen telefon numarası :{location.phone} </label>
         </Row>
         <Row style={{ marginTop: 10 }}>
           <label>Adres tarifi :{location.likeLocation} </label>
