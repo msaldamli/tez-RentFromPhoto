@@ -32,7 +32,7 @@ const ShowComment = (ilanId) => {
             </Row>
             <Row style={{ marginTop: 10 }}></Row>
             <Row style={{ marginTop: 10 }}>
-              <label>Adres tarifi :{yorum.likelocation} </label>
+              <label>Adres tarifi :{yorum.likeLocation} </label>
             </Row>
             <Row style={{ marginTop: 10 }}>
               <label>Yorumlarınız ve Bilgilendirme :{yorum.apartment} </label>

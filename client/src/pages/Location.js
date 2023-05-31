@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Rating } from 'react-simple-star-rating';
@@ -11,10 +11,12 @@ import StarRating from '../components/StarRating/StarRating';
 // import { Button } from 'antd';
 import Button from 'react-bootstrap/Button';
 import { postRatingAdd } from '../api/imagePost';
-import { earnPoint } from '../api/api';
+import { earnPoint, getOneUser } from '../api/api';
 
 const Location = () => {
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const navigate = useNavigate();
   // console.log(user);
   const userId = user._id;
   console.log(userId);
@@ -24,6 +26,7 @@ const Location = () => {
   });
   const { locationId } = useParams();
   const [location, setLocation] = useState({});
+  console.log(location);
   const [date, setDate] = useState('');
   const [durum, setDurum] = useState(true);
   // const [postRating, setPostRating] = useState();
@@ -67,15 +70,28 @@ const Location = () => {
     e.preventDefault();
     setDurum(false);
 
-    // setPostRating(localStorage.getItem('postRating'));
-    // console.log(postRating);
-    // console.log(postRating);
-    // console.log(locationId);
     earnPoint(JSON.stringify(point));
     postRatingAdd(locationId);
   };
-  // const number = location.postRating.toFixed(2);
-  // console.log(number);
+
+  const [locationUser, setLocationUser] = useState();
+
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await getOneUser(location?.userId);
+      console.log(user);
+      setLocationUser(user);
+    };
+    getUser();
+  }, [location]);
+
+  console.log(locationUser);
+
+  const gotoUser = (e, userId) => {
+    e.preventDefault();
+    console.log(userId);
+    navigate('/User/' + userId, { replace: true });
+  };
 
   return (
     <Container>
@@ -94,6 +110,17 @@ const Location = () => {
               {location.ratingCount})
             </h2>
           </Col>
+        </Row>
+        <Row>
+          <h5
+            style={{ border: '1px solid' }}
+            onClick={(e) => {
+              gotoUser(e, location.userId);
+            }}
+            title='ilan sahibine git'
+          >
+            İlan sahibi : {locationUser?.name}
+          </h5>
         </Row>
         <Row style={{ marginTop: 10 }}>
           <label>Vermiş olduğunuz telefon numarası :{location.phone} </label>
