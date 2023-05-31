@@ -113,7 +113,7 @@ const Location = () => {
         </Row>
         <Row>
           <h5
-            style={{ border: '1px solid' }}
+            style={{ border: '1px solid', marginTop: 10 }}
             onClick={(e) => {
               gotoUser(e, location.userId);
             }}
